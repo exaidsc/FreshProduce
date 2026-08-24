@@ -1,0 +1,6 @@
+.vscode/
+project.private.config.json
+Thumbs.db
+.DS_Store
+admin-web/node_modules/
+admin-web/dist/
