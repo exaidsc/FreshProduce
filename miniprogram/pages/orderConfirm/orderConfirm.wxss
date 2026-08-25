@@ -1,0 +1,4 @@
+.container{padding:30rpx;}
+.item{display:flex;justify-content:space-between;padding:20rpx;border-bottom:1rpx #eee solid;}
+.total{margin:40rpx 0;font-size:32rpx;}
+.money{color:red;font-weight:bold;}

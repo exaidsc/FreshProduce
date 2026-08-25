@@ -1,0 +1,11 @@
+<view wx:if="{{info}}">
+  <view>订单号：{{info.orderId}}</view>
+  <view>下单时间：{{info.createTime}}</view>
+  <view>订单状态：{{info.status===0?"待付款":"已完成"}}</view>
+  <view>----------------</view>
+  <view wx:for="{{info.goods}}" wx:key="id">
+    <text>{{item.name}} ×{{item.count}}  ¥{{item.price*item.count}}</text>
+  </view>
+  <view>----------------</view>
+  <view>合计：¥{{info.totalMoney}}</view>
+</view>
