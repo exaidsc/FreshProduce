@@ -1,0 +1,9 @@
+<view class="container">
+  <view wx:for="{{orderTemp}}" wx:key="id" class="item">
+    <text>{{item.name}}</text>
+    <text>x{{item.count}}</text>
+    <text>¥{{item.price*item.count}}</text>
+  </view>
+  <view class="total">应付金额：<text class="money">¥{{payTotal}}</text></view>
+  <button bindtap="submitOrder" type="primary">提交订单</button>
+</view>

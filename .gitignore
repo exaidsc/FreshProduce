@@ -1,6 +1,21 @@
-.vscode/
-project.private.config.json
-Thumbs.db
-.DS_Store
 admin-web/node_modules/
 admin-web/dist/
+
+# VSCode本地编辑器配置
+.vscode/
+
+# 微信小程序本地私有配置，绝对禁止提交
+project.private.config.json
+
+# 系统自动生成垃圾文件
+Thumbs.db
+.DS_Store
+
+# 日志、缓存文件
+*.log
+
+# node依赖包
+node_modules/
+
+# 编译产物
+dist/
