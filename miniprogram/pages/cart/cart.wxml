@@ -1,0 +1,24 @@
+<view class="container">
+  <block wx:if="{{cartList.length>0}}">
+    <view wx:for="{{cartList}}" wx:key="id" class="cart-item">
+      <checkbox checked="{{item.selected}}" data-index="{{index}}" bindtap="toggleSelect"/>
+      <view class="info">
+        <text>{{item.name}}</text>
+        <text class="price">¥{{item.price}}</text>
+      </view>
+      <view class="num-box">
+        <button size="mini" bindtap="minus" data-index="{{index}}">-</button>
+        <text>{{item.count}}</text>
+        <button size="mini" bindtap="add" data-index="{{index}}">+</button>
+      </view>
+      <button size="mini" bindtap="delItem" data-index="{{index}}">删除</button>
+    </view>
+
+    <view class="bottom-bar">
+      <checkbox checked="{{allSelected}}" bindtap="toggleAll">全选</checkbox>
+      <view>合计：<text class="total">¥{{totalPrice}}</text></view>
+      <button bindtap="goConfirm" type="primary">去结算</button>
+    </view>
+  </block>
+  <view wx:else class="empty">购物车空空如也</view>
+</view>
