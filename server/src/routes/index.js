@@ -18,6 +18,8 @@ const { validateAddress, validateProduct, validateGroupActivity, required } = re
 router.post('/user/login', userController.login);
 router.get('/user/info', authMiddleware, userController.getUserInfo);
 router.put('/user/info', authMiddleware, userController.updateUserInfo);
+router.post('/admin/login', userController.adminLogin);
+
 
 // ============================================================
 // 收货地址模块接口（需要登录）

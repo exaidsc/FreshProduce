@@ -1,17 +1,10 @@
 const userService = require('../service/userService');
 const { success, fail, serverError } = require('../utils/response');
 
-/**
- * 微信登录
- * POST /api/user/login
- * body: { code }
- */
 async function login(req, res) {
     try {
         const { code } = req.body;
-        if (!code) {
-            return fail(res, 'code不能为空');
-        }
+        if (!code) return fail(res, 'code不能为空');
         const result = await userService.wxLogin(code);
         return success(res, result, '登录成功');
     } catch (err) {
@@ -20,10 +13,6 @@ async function login(req, res) {
     }
 }
 
-/**
- * 获取用户信息
- * GET /api/user/info
- */
 async function getUserInfo(req, res) {
     try {
         const userInfo = await userService.getUserInfo(req.user.id);
@@ -33,10 +22,6 @@ async function getUserInfo(req, res) {
     }
 }
 
-/**
- * 更新用户信息
- * PUT /api/user/info
- */
 async function updateUserInfo(req, res) {
     try {
         const userInfo = await userService.updateUserInfo(req.user.id, req.body);
@@ -46,8 +31,15 @@ async function updateUserInfo(req, res) {
     }
 }
 
-module.exports = {
-    login,
-    getUserInfo,
-    updateUserInfo
-};
+async function adminLogin(req, res) {
+    try {
+        const { username, password } = req.body;
+        if (!username || !password) return fail(res, '用户名和密码不能为空');
+        const result = await userService.adminLogin(username, password);
+        return success(res, result, '管理员登录成功');
+    } catch (err) {
+        return fail(res, err.message);
+    }
+}
+
+module.exports = { login, getUserInfo, updateUserInfo, adminLogin };
